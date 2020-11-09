@@ -48,13 +48,14 @@ if (keyDown("up")) {
  
   dog.changeAnimation("dog_standing",standingDog)
   whiningSound.play();
+  eatingSound.stop();
 }
 
 if (keyDown("left")) {
   
   dog.changeAnimation("dog_running", runningDog)
   dog.x= 200
-  //whiningSound.play();
+  eatingSound.stop();
 }
 
 if (keyDown("down")) {
@@ -64,15 +65,24 @@ whiningSound.stop();
   eatingSound.play();
 }
 
+if (keyDown("right")) {
+ 
+  dog.changeAnimation("dog_sitting", sittingDog)
+whiningSound.stop();
+  eatingSound.stop();
+}
+
   dog.display();
   drawSprites();
 
 textSize(20)
 fill("white")
-stroke("red")
-  text("PRESS THE UP ARROW, THEN THE LEFT " ,20, 20)
-  text("AND FINALLY DOWN TO FEED FLUPPY", 60, 40)
-
+stroke("green")
+strokeWeight(3)
+  text("PRESS THE UP ARROW, THEN THE LEFT!" ,20, 20)
+  text("AND FINALLY DOWN TO FEED FLUPPY!", 60, 40)
+  text("AFTER HE FINISHES,", 10, 60)
+text("PRESS LEFT TO MAKE HIM SIT AGAIN!", 60, 80)
 }
 
 function readStock(data) {
